@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: duq-fe
+  labels:
+    app: duq-fe
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: duq-fe
+  template:
+    metadata:
+      labels:
+        app: duq-fe
+    spec:
+      containers:
+        - name: duq
+          image: docker.io/lephew/duq-fe:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80

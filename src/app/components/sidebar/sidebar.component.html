@@ -1,0 +1,64 @@
+<!-- Sidebar -->
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+    <!-- Sidebar - Brand -->
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+        <div class="sidebar-brand-icon rotate-n-15">
+            <i class="fas fa-laugh-wink"></i>
+        </div>
+        <div class="sidebar-brand-text mx-3">Sistema de Pesaje</div>
+    </a>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider my-0">
+    <br/> 
+
+    <!-- Nav Item - Dashboard -->
+<!--     <li class="nav-item active">
+        <a class="nav-link" href="index.html">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Dashboard</span></a>
+    </li>
+
+    <hr class="sidebar-divider"> -->
+    <!-- Divider -->
+
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        Menú
+    </div>
+
+    <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+            aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fa fa-circle" aria-hidden="true"></i>
+            <span>Operaciones</span>
+        </a>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">  
+                <h6 class="collapse-header">Seleccione</h6>
+                <a class="collapse-item" [routerLink]="['/home/control-pesaje']">Control Pesaje</a>
+                <a class="collapse-item" [routerLink]="['/home/descuentos']" >Descuentos</a>
+                <a class="collapse-item" [routerLink]="['/home/tonelaje-dia']">Tonelaje del día</a>
+            </div>
+        </div>
+    </li>
+
+    <!-- Nav Item - Utilities Collapse Menu -->
+   <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseConfig"
+            aria-expanded="true" aria-controls="collapseConfig">
+            <i class="fas fa-cog"></i>
+            <span>Administración</span>
+        </a>
+        <div id="collapseConfig" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">  
+                <h6 class="collapse-header">Seleccione</h6>
+                <a class="collapse-item" [routerLink]="['/home/fichas']">Fichas</a>
+                <a class="collapse-item" [routerLink]="['/home/companias']">Companias</a>
+                <a class="collapse-item" [routerLink]="['/home/']"></a>
+            </div>
+        </div>
+    </li>
+</ul>
