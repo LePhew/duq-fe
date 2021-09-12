@@ -8,6 +8,8 @@ import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password
 import { HomeModule } from './pages/home/home.module';
 import { FichasComponent } from './components/fichas/fichas.component';
 import { CompaniaComponent } from './components/compania/compania.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -22,7 +24,9 @@ import { CompaniaComponent } from './components/compania/compania.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HomeModule
+    HomeModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

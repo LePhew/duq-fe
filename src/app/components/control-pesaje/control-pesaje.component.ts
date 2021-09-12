@@ -10,6 +10,11 @@ export class ControlPesajeComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
+  }
+
+  simularRfid() {
+
   }
 
 }
