@@ -1,30 +1,34 @@
 export class Pesaje {
-
-    compania_id: string;
     ficha_id: string;
     tonelaje: number;
-    descuento: number;
-    ticket_id: string;
-    fecha_hora: Date;
     usuario_id: string;
+    peso_bruto: number;
+    descuento?: number;
+    ticket_id?: string;
 
-    constructor(compania_id: string, ficha_id: string, tonelaje: number, descuento: number, ticket_id: string, fecha_hora: Date, usuario_id: string) {
-        this.compania_id = compania_id;
+    constructor(
+        ficha_id: string,
+        tonelaje: number,
+        usuario_id: string,
+        peso_bruto: number,
+        descuento?: number,
+        ticket_id?: string
+    ) {
         this.ficha_id = ficha_id;
         this.tonelaje = tonelaje;
-        this.descuento = descuento;
-        this.ticket_id = ticket_id;
-        this.fecha_hora = fecha_hora;
+        this.ticket_id = ticket_id || "";
         this.usuario_id = usuario_id;
+        this.peso_bruto = peso_bruto;
+        this.descuento = descuento || 0;
     }
-};
+}
+
 export interface IPesaje {
     id: string;
-    compania_id: string;
     ficha_id: string;
     tonelaje: number;
-    descuento: number;
-    ticket_id: string;
-    fecha_hora: Date;
-    usuario_id: string
+    usuario_id: string;
+    peso_bruto: number;
+    ticket_id?: string;
+    descuento?: number;
 }

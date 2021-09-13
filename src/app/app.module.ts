@@ -11,6 +11,8 @@ import { CompaniaComponent } from './components/compania/compania.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 
 @NgModule({
@@ -26,7 +28,8 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     HomeModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
