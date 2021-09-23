@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ICompania, Compania } from 'src/app/interfaces/compania';
 import { GenericService } from 'src/app/services/generic.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-compania',
@@ -38,9 +39,22 @@ export class CompaniaComponent implements OnInit {
 
   create() {
     let compania = new Compania(this.nombre, this.distrito);
-    this._genericService.crear(this.componentUrl, compania, () => {
-      this.clearInputs();
-      this.loadAll();
+    try {
+      this._genericService.crear(this.componentUrl, compania, () => {
+        this.clearInputs();
+        this.loadAll();
+      })
+
+    }
+    catch {
+
+    }
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'Operación exitosa',
+      showConfirmButton: false,
+      timer: 1500
     })
   }
 

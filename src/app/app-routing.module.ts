@@ -8,7 +8,7 @@ const routes: Routes = [
   { path: 'home', loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule) },
   { path: 'login', component: LoginComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
-  { path: '**', redirectTo: '/home' }
+  { path: '**', redirectTo: '/login' }
 ];
 
 @NgModule({

@@ -3,6 +3,7 @@ import { fade } from 'src/app/animations';
 import { IFicha } from 'src/app/interfaces/ficha';
 import { Pesaje } from 'src/app/interfaces/pesaje';
 import { GenericService } from 'src/app/services/generic.service';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -54,10 +55,26 @@ export class ControlPesajeComponent implements OnInit {
   }
 
   guardar() {
-    this.calcPesoAndTonelaje();
-    this.usuario_id = "ea12d4e7-5ae1-42fb-9076-ca234c623cc4";
-    let pesaje = new Pesaje(this.ficha.id, this.tonelaje, this.usuario_id, this.peso_bruto);
-    this._genericService.crear(this.componentUrl, pesaje, () => { });
+    try {
+
+      this.calcPesoAndTonelaje();
+      this.usuario_id = localStorage.getItem('userId') || "";
+      let pesaje = new Pesaje(this.ficha.id, this.tonelaje, this.usuario_id, this.peso_bruto);
+      this._genericService.crear(this.componentUrl, pesaje, () => { });
+    }
+    catch {
+      Swal.fire(
+        'Ha sucedido un error',
+        'Favor contactar a soporte',
+        'error')
+    }
+    finally {
+      Swal.fire(
+        'Pesaje guardado con éxito',
+        'Gracias!',
+        'success'
+      )
+    }
   }
 
   limpiar() {

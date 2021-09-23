@@ -12,9 +12,9 @@
   
       <!-- Login Form -->
       <form>
-        <input type="text" id="login" class="fadeIn second" name="login" placeholder="Usuario">
-        <input type="text" id="password" class="fadeIn third" name="login" placeholder="Contraseña">
-        <input type="submit" class="fadeIn fourth" value="Ingresar">
+        <input [(ngModel)]="usuario" type="text" id="usuario" class="fadeIn second" name="usuario" placeholder="Usuario">
+        <input [(ngModel)]="contrasena" type="password" id="contrasena" class="fadeIn third" name="contrasena" placeholder="Contraseña">
+        <input type="submit" class="fadeIn fourth" (click)="login()" value="Ingresar">
       </form>
   
       <!-- Remind Passowrd -->

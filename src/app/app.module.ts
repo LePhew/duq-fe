@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UsuariosComponent } from './components/usuarios/usuarios.component';
 
 
 
@@ -21,7 +22,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     LoginComponent,
     ForgotPasswordComponent,
     FichasComponent,
-    CompaniaComponent
+    CompaniaComponent,
+    UsuariosComponent
   ],
   imports: [
     BrowserModule,
