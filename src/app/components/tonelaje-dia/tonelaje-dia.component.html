@@ -14,49 +14,16 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>8/2/2021</td>
-            <td>11:45</td>
-            <td>1001</td>
-            <td>ADN Services</td>
-            <td>23072</td>
-            <td>13.3</td>
-            <td>23.3</td>
-            <td>10</td>
-            <td>2</td>
-          </tr>
-          <tr>
-            <td>8/2/2021</td>
-            <td>11:45</td>
-            <td>1001</td>
-            <td>ADN Services</td>
-            <td>23072</td>
-            <td>13.3</td>
-            <td>23.3</td>
-            <td>10</td>
-            <td>2</td>
-          </tr>
-          <tr>
-            <td>8/2/2021</td>
-            <td>11:45</td>
-            <td>1001</td>
-            <td>ADN Services</td>
-            <td>23072</td>
-            <td>13.3</td>
-            <td>23.3</td>
-            <td>10</td>
-            <td>2</td>
-          </tr>
-          <tr>
-            <td>8/2/2021</td>
-            <td>11:45</td>
-            <td>1001</td>
-            <td>ADN Services</td>
-            <td>23072</td>
-            <td>13.3</td>
-            <td>23.3</td>
-            <td>10</td>
-            <td>2</td>
+          <tr *ngFor="let pesaje of pesajes">
+            <td>{{ pesaje.ticket.fecha_emision | date:"shortDate" }}</td>
+            <td>{{ pesaje.ticket.fecha_emision | date:"shortTime" }}</td>
+            <td>{{ pesaje.ticket.numero }}</td>
+            <td>{{ pesaje.ficha.compania.nombre }}</td>
+            <td>{{ pesaje.ficha.codigo }}</td>
+            <td>{{ pesaje.ficha.tara}}</td>
+            <td>{{ pesaje.peso_bruto }}</td>
+            <td>{{ pesaje.tonelaje }}</td>
+            <td>{{ pesaje.descuento }}</td>
           </tr>
         </tbody>
       </table>

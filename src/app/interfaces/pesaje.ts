@@ -1,3 +1,7 @@
+import { IFicha } from "./ficha";
+import { ITicket } from "./ticket";
+import { IUsuario } from "./usuario";
+
 export class Pesaje {
     ficha_id: string;
     tonelaje: number;
@@ -27,6 +31,9 @@ export interface IPesaje {
     id: string;
     ficha_id: string;
     tonelaje: number;
+    ticket: ITicket;
+    ficha: IFicha;
+    usuario: IUsuario;
     usuario_id: string;
     peso_bruto: number;
     ticket_id?: string;
