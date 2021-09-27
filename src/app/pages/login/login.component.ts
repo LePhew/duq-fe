@@ -22,16 +22,6 @@ export class LoginComponent implements OnInit {
   }
 
   async login() {
-
-    let validated: boolean = await this._loginService.validate(this.usuario, this.contrasena);
-
-    if (validated) {
-      this._router.navigateByUrl('/home');
-    }
-    else {
-      alert("Wrong username or password");
-    }
-
+    this._loginService.validate(this.usuario, this.contrasena);
   }
-
 }

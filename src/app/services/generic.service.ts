@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 
 export class GenericService {
 
-    baseUrl: string = "http://localhost:3000/"
+    baseUrl: string = "http://duqbe:3000/"
 
     constructor(private http: HttpClient) {
 
@@ -33,7 +33,7 @@ export class GenericService {
         this.http.get(this.baseUrl + componentUrl + payload).subscribe((response: any) => {
             successCallback(response);
         }, (error) => {
-            console.log(error);
+            alert('no se encontró el usuario');
         });
     }
 
@@ -58,4 +58,5 @@ export class GenericService {
     borrar(componentUrl: string, payload: any, successCallback: any = () => { }) {
 
     }
+
 }
