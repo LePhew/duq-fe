@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: duq
-          image: docker.io/lephew/duq-fe:latest
+          image: docker.io/lephew/duq-fe:dev
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 80
