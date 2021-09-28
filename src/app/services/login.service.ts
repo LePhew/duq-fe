@@ -23,7 +23,6 @@ export class LoginService {
     validate(usuario: string, contrasena: string) {
         try {
             this._genericService.getByUsername(this.componentUrl + "/byname/", usuario, (user: IUsuario) => {
-                debugger
                 if (user != null) {
                     this.u = user;
                     if (this.u.contrasena === contrasena) {
