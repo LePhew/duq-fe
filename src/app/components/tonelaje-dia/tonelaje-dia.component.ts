@@ -10,7 +10,7 @@ import { GenericService } from 'src/app/services/generic.service';
 export class TonelajeDiaComponent implements OnInit {
 
   private readonly componentUrl: string = "pesaje";
-  
+
   pesajes: IPesaje[] = [];
 
   constructor(
@@ -23,9 +23,11 @@ export class TonelajeDiaComponent implements OnInit {
 
   getPesaje() {
     this._genericService.getAll(this.componentUrl, (data: IPesaje[]) => {
-      console.log(data);
       this.pesajes = data;
     })
   }
 
+  generarCierre() {
+
+  }
 }

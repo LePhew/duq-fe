@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 
 export class GenericService {
 
-    baseUrl: string = "http://20.65.15.220:3000/"
+    baseUrl: string = "https://api.duqweb.tk/"
 
     constructor(private http: HttpClient) {
 
