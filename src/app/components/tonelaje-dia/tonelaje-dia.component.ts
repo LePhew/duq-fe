@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IPesaje } from 'src/app/interfaces/pesaje';
 import { GenericService } from 'src/app/services/generic.service';
-
+import { addDays, addHours } from '../../utils/dateHelpers';
 @Component({
   selector: 'app-tonelaje-dia',
   templateUrl: './tonelaje-dia.component.html',
@@ -12,6 +12,7 @@ export class TonelajeDiaComponent implements OnInit {
   private readonly componentUrl: string = "pesaje";
   
   pesajes: IPesaje[] = [];
+  cierre: IPesaje[] = [];
 
   constructor(
     private _genericService: GenericService
@@ -23,9 +24,8 @@ export class TonelajeDiaComponent implements OnInit {
 
   getPesaje() {
     this._genericService.getAll(this.componentUrl, (data: IPesaje[]) => {
-      console.log(data);
       this.pesajes = data;
     })
   }
-
+  
 }
