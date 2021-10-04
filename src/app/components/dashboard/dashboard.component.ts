@@ -19,6 +19,7 @@ export class DashboardComponent implements OnInit {
 
   tickets: ITicket[] = [];
   pesajes: IPesaje[] = [];
+  cerradosByDay: ITicket[] = [];
 
 
   constructor(
@@ -27,8 +28,14 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllCerrados();
+    this.getAllCerradosByDay();
   }
 
+  getAllCerradosByDay() {
+    this._genericService.getAll(this.ticketComponentUrl + "/cerrados/byday", (cerradosByDay: ITicket[]) => {
+      this.cerradosByDay = cerradosByDay;
+    })
+  }
   getAllCerrados() {
     this._genericService.getAll(this.ticketComponentUrl + "/cerrados", (tickets: ITicket[]) => {
       this.tickets = tickets;
