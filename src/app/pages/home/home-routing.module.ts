@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CompaniaComponent } from 'src/app/components/compania/compania.component';
 import { ControlPesajeComponent } from 'src/app/components/control-pesaje/control-pesaje.component';
+import { DashboardComponent } from 'src/app/components/dashboard/dashboard.component';
 import { DescuentosComponent } from 'src/app/components/descuentos/descuentos.component';
 import { FichasComponent } from 'src/app/components/fichas/fichas.component';
 import { TonelajeDiaComponent } from 'src/app/components/tonelaje-dia/tonelaje-dia.component';
@@ -17,7 +18,9 @@ const routes: Routes = [
             { path: 'tonelaje-dia', component: TonelajeDiaComponent },
             { path: 'fichas', component: FichasComponent },
             { path: 'companias', component: CompaniaComponent },
-            { path: 'usuarios', component: UsuariosComponent }
+            { path: 'usuarios', component: UsuariosComponent },
+            { path: 'dashboard', component: DashboardComponent },
+            { path: '**', component: DashboardComponent }
         ]
     }
 

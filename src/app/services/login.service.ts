@@ -27,6 +27,7 @@ export class LoginService {
                     this.u = user;
                     if (this.u.contrasena === contrasena) {
                         localStorage.setItem('userId', this.u.id);
+                        localStorage.setItem('userRole', this.u.cargo);
                         this.isValidated = true;
                         this._router.navigateByUrl('/home');
                     }

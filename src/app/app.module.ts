@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { DatePipe } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +14,8 @@ import { FormsModule } from '@angular/forms';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { ChartsModule } from 'ng2-charts';
 
 
 
@@ -23,7 +26,8 @@ import { UsuariosComponent } from './components/usuarios/usuarios.component';
     ForgotPasswordComponent,
     FichasComponent,
     CompaniaComponent,
-    UsuariosComponent
+    UsuariosComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -31,9 +35,10 @@ import { UsuariosComponent } from './components/usuarios/usuarios.component';
     HomeModule,
     HttpClientModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ChartsModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
