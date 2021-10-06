@@ -20,7 +20,28 @@ export class DashboardComponent implements OnInit {
   tickets: ITicket[] = [];
   pesajes: IPesaje[] = [];
   cerradosByDay: any = [];
+  cerradosByMonth: any = [];
 
+
+  //chartProps
+  barChartOptions: ChartOptions = {};
+  barChartLabels: Label[] = [];
+  barChartType: ChartType = 'bar';
+  barChartLegend = true;
+  barChartPlugins = [];
+  barChartData: ChartDataSets[] = [];
+
+  lineChartOptions: ChartOptions = {};
+  lineChartColors: Color[] = [
+    {
+      backgroundColor: 'RGBA(0,0,230,0.6)',
+    },
+  ];
+  lineChartLegend = true;
+  lineChartPlugins = [];
+  lineChartType: ChartType = 'line';
+  lineChartLabels: Label[] = [];
+  lineChartData: ChartDataSets[] = [];
 
   constructor(
     private _genericService: GenericService
@@ -28,32 +49,46 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllCerrados();
-    this.getAllCerradosByDay();
+    this.getCerradosByDay();
+    this.getCerradosByMonth();
   }
 
-  getAllCerradosByDay() {
-    this._genericService.getAll(this.ticketComponentUrl + "/cerrados/byday", (cerradosByDay: any) => {
-      console.log(cerradosByDay);
-      this.cerradosByDay = cerradosByDay;
-      console.log(this.cerradosByDay.data)
-    })
-  }
+
   getAllCerrados() {
     this._genericService.getAll(this.ticketComponentUrl + "/cerrados", (tickets: ITicket[]) => {
       this.tickets = tickets;
     })
   }
 
-  barChartOptions: ChartOptions = {
-    responsive: true,
-  };
-  barChartLabels: Label[] =  [];
-  barChartType: ChartType = 'bar';
-  barChartLegend = true;
-  barChartPlugins = [];
+  getCerradosByMonth() {
+    this._genericService.getAll(this.ticketComponentUrl + "/cerrados/bymonth", (cerradosByMonth: any) => {
+      this.cerradosByMonth = cerradosByMonth;
+      this.buildCharts();
 
-  barChartData: ChartDataSets[] = [
-    { data: [], label: 'Cerrados por día' }
-  ];
+    })
+  }
+  getCerradosByDay() {
+    this._genericService.getAll(this.ticketComponentUrl + "/cerrados/byday", (cerradosByDay: any) => {
+      this.cerradosByDay = cerradosByDay;
+    })
+  }
+
+  buildCharts() {
+    this.barChartOptions = {
+      responsive: true,
+    };
+    this.barChartLabels = this.cerradosByDay.labels;
+    this.barChartData = [
+      { data: this.cerradosByDay ? this.cerradosByDay.data : [], label: 'Cerrados por día' }
+    ];
+
+    this.lineChartOptions = {
+      responsive: true,
+    }
+    this.lineChartLabels = this.cerradosByMonth.labels;
+    this.lineChartData = [
+      { data: this.cerradosByMonth.data, label: 'Cerrados por mes' },
+    ];
+  }
 
 }

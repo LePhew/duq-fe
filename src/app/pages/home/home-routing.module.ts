@@ -19,7 +19,8 @@ const routes: Routes = [
             { path: 'fichas', component: FichasComponent },
             { path: 'companias', component: CompaniaComponent },
             { path: 'usuarios', component: UsuariosComponent },
-            { path: 'dashboard', component: DashboardComponent }
+            { path: 'dashboard', component: DashboardComponent },
+            { path: '**', component: DashboardComponent }
         ]
     }
 
