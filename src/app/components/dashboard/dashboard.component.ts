@@ -19,7 +19,7 @@ export class DashboardComponent implements OnInit {
 
   tickets: ITicket[] = [];
   pesajes: IPesaje[] = [];
-  cerradosByDay: ITicket[] = [];
+  cerradosByDay: any = [];
 
 
   constructor(
@@ -32,8 +32,10 @@ export class DashboardComponent implements OnInit {
   }
 
   getAllCerradosByDay() {
-    this._genericService.getAll(this.ticketComponentUrl + "/cerrados/byday", (cerradosByDay: ITicket[]) => {
+    this._genericService.getAll(this.ticketComponentUrl + "/cerrados/byday", (cerradosByDay: any) => {
+      console.log(cerradosByDay);
       this.cerradosByDay = cerradosByDay;
+      console.log(this.cerradosByDay.data)
     })
   }
   getAllCerrados() {
@@ -42,37 +44,16 @@ export class DashboardComponent implements OnInit {
     })
   }
 
-  lineChartData: ChartDataSets[] = [
-    { data: [85, 72, 78, 75, 77, 75, 80], label: 'Crude oil prices' },
-  ];
-
-  lineChartLabels: Label[] = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
-
-  lineChartOptions = {
-    responsive: true,
-  };
-
-  lineChartColors: Color[] = [
-    {
-      borderColor: 'black',
-      backgroundColor: 'rgba(255,255,0,0.28)',
-    },
-  ];
-
-  lineChartLegend = true;
-  lineChartPlugins = [];
-  lineChartType: ChartType = 'line';
-
   barChartOptions: ChartOptions = {
     responsive: true,
   };
-  barChartLabels: Label[] = ['Apple', 'Banana', 'Kiwifruit', 'Blueberry', 'Orange', 'Grapes'];
+  barChartLabels: Label[] =  [];
   barChartType: ChartType = 'bar';
   barChartLegend = true;
   barChartPlugins = [];
 
   barChartData: ChartDataSets[] = [
-    { data: [45, 37, 60, 70, 46, 33], label: 'Best Fruits' }
+    { data: [], label: 'Cerrados por día' }
   ];
 
 }
