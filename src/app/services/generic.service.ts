@@ -47,7 +47,7 @@ export class GenericService {
     }
 
     actualizar(componentUrl: string, id: string, payload: any, successCallback: any = () => { }) {
-        this.http.put(this.baseUrl + componentUrl, payload).subscribe((response: any) => {
+        this.http.put(this.baseUrl + componentUrl + "/" + id, payload).subscribe((response: any) => {
             successCallback(response);
         }, (error) => {
             console.log(error);

@@ -29,6 +29,7 @@ export class TonelajeDiaComponent implements OnInit {
 
   getPesaje() {
     this._genericService.getAll(this.componentUrl, (data: IPesaje[]) => {
+      console.log(data);
       this.pesajes = data;
     })
   }

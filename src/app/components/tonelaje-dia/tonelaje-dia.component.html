@@ -13,8 +13,8 @@
             <th scope="col">Descuento</th>
           </tr>
         </thead>
-        <tbody>
-          <tr *ngFor="let pesaje of pesajes">
+        <tbody *ngIf="pesajes">
+          <tr  *ngFor="let pesaje of pesajes">
             <td>{{ pesaje.ticket.fecha_emision | date:"shortDate" }}</td>
             <td>{{ pesaje.ticket.fecha_emision | date:"shortTime" }}</td>
             <td>{{ pesaje.ticket.numero }}</td>
