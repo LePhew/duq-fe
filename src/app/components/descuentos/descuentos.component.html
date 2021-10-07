@@ -3,7 +3,8 @@
         <div class="row">
             <div class="col-lg-3">
                 <label for="ticket" class="form-label">Ticket</label>
-                <input type="text" name="ticket" id="ticket" class="form-control" placeholder="1001">
+                <input type="text" (keyup)="buscarPesajeByTicket()" [(ngModel)]="ticket"  id="ticket" name="ticket" class="form-control">
+                <p *ngIf="selectedPesaje">Seleccionado: <span style="color: red;">{{ selectedPesaje.ticket.numero }}</span></p>
             </div>
         </div>
     </form>
@@ -21,32 +22,32 @@
             <th>Descuento</th>
         </thead>
         <tbody>
-            <tr>
-                <td>8/2/2021</td>
-                <td>11:54</td>
-                <td>1001</td>
-                <td>ADN Services</td>
-                <td>23072</td>
-                <td>13.3</td>
-                <td>23.3</td>
-                <td>10</td>
-                <td>0</td>
+            <tr (click)="selectPesaje(pesaje)" *ngFor="let pesaje of filteredPesajes">
+                <td>{{ pesaje.ticket.fecha_emision | date:"shortDate" }}</td>
+                <td>{{ pesaje.ticket.fecha_emision | date:"shortTime" }}</td>
+                <td>{{ pesaje.ticket.numero }}</td>
+                <td>{{ pesaje.ficha.compania.nombre }}</td>
+                <td>{{ pesaje.ficha.codigo }}</td>
+                <td>{{ pesaje.ficha.tara}}</td>
+                <td>{{ pesaje.peso_bruto }}</td>
+                <td>{{ pesaje.tonelaje }}</td>
+                <td>{{ pesaje.descuento }}</td>
             </tr>
         </tbody>
     </table>
     <div class="row mb-3">
         <div class="col-lg-3">
-            <label for="motivo">Descuento</label>
-            <input type="text" name="motivo" id="motivo" class="form-control">
+            <label for="descuento">Descuento</label>
+            <input [(ngModel)]="descuento" type="number" name="descuento" id="descuento" class="form-control">
         </div>
-        <div class="col-lg-3">
+        <!-- <div class="col-lg-3">
             <label for="motivo">Motivo</label>
             <input type="text" name="motivo" id="motivo" class="form-control">
-        </div>
+        </div> -->
     </div>
     <div class="row align-items-center">
         <div>
-            <button class="btn btn-primary">Procesar</button>
+            <button (click)="actualizarPesaje()" class="btn btn-primary">Procesar</button>
         </div>
     </div>
 </div>

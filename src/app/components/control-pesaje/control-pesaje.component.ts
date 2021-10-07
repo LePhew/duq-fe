@@ -56,11 +56,13 @@ export class ControlPesajeComponent implements OnInit {
 
   guardar() {
     try {
-
       this.calcPesoAndTonelaje();
       this.usuario_id = localStorage.getItem('userId') || "";
       let pesaje = new Pesaje(this.ficha.id, this.tonelaje, this.usuario_id, this.peso_bruto);
-      this._genericService.crear(this.componentUrl, pesaje, () => { });
+      this._genericService.crear(this.componentUrl, pesaje, () => {
+        this.limpiar();
+        this.loadFichas();
+      });
     }
     catch {
       Swal.fire(
