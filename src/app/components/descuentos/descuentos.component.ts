@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GenericService } from 'src/app/services/generic.service';
 
 @Component({
   selector: 'app-descuentos',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DescuentosComponent implements OnInit {
 
-  constructor() { }
+  readonly pesajeComponentUrl: string = "pesaje";
+  readonly ticketComponentUrl: string = "ticket";
+
+  constructor(
+    private _genericService: GenericService
+  ) { }
 
   ngOnInit(): void {
+
   }
+
+  actualizarPesaje(pesaje_id: string) {
+
+  }
+
 
 }
