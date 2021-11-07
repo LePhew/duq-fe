@@ -55,4 +55,8 @@ export class TonelajeDiaComponent implements OnInit {
     this._exportService.exportToCsv(csv, 'pesaje-data', ['fecha', 'hora', 'ticket', 'compania', 'ficha', 'tara', 'pesobruto', 'tonelaje', 'descuento']);
   }
 
+  generarCierre(){
+    
+  }
+
 }
