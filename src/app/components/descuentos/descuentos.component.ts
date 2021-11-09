@@ -81,6 +81,4 @@ export class DescuentosComponent implements OnInit {
   selectPesaje(pesaje: any) {
     this.selectedPesaje = pesaje;
   }
-
-
 }

@@ -13,6 +13,7 @@ import Swal from 'sweetalert2';
 export class TonelajeDiaComponent implements OnInit {
 
   private readonly componentUrl: string = "pesaje";
+  private readonly ticketUrl: string = "ticket";
 
   pesajes: IPesaje[] = [];
   cierre: IPesaje[] = [];
@@ -49,14 +50,19 @@ export class TonelajeDiaComponent implements OnInit {
       cs.tara = item.ficha.tara.toString();
       cs.pesobruto = item.peso_bruto.toString();
       cs.tonelaje = item.tonelaje.toString();
-      cs.descuento = "";
+      cs.descuento = item.descuento;
       csv.push(cs);
     })
     console.log(csv);
-    this._exportService.exportToCsv(csv, 'pesaje-data', ['fecha', 'hora', 'ticket', 'compania', 'ficha', 'tara', 'pesobruto', 'tonelaje', 'descuento']);
+    let fileName = "cierre-"+ this._datePipe.transform(Date.now(), 'M/d/yyyy');
+    this._exportService.exportToCsv(csv, fileName, ['fecha', 'hora', 'ticket', 'compania', 'ficha', 'tara', 'pesobruto', 'tonelaje', 'descuento']);
   }
 
   generarCierre(){
+    this._genericService.crear(this.ticketUrl+"/cierre", {}, () => {
+      this.exportToCsv();
+      window.location.reload();
+    });
     
   }
 
