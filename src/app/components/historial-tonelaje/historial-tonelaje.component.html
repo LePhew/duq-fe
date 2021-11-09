@@ -1,0 +1,37 @@
+<h1>Historial</h1>
+<div class="row filters-area">
+    <div class="btn-group col-lg-3">
+        <select class="form-select" aria-label="Default select example">
+            <option selected>Selecciona el mes</option>
+            <option *ngFor="let mes of meses" value="{{mes}}">{{ mes }}</option>
+          </select>
+    </div>
+<br/>
+    <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Fecha</th>
+            <th scope="col">Hora</th>
+            <th scope="col">Ticket</th>
+            <th scope="col">Compañía</th>
+            <th scope="col">Ficha</th>
+            <th scope="col">Tara</th>
+            <th scope="col">Peso Bruto</th>
+            <th scope="col">Tonelaje</th>
+            <th scope="col">Descuento</th>
+          </tr>
+        </thead>
+        <tbody *ngIf="pesajes">
+          <tr  *ngFor="let pesaje of pesajes">
+            <td>{{ pesaje.ticket.fecha_emision | date:"shortDate" }}</td>
+            <td>{{ pesaje.ticket.fecha_emision | date:"shortTime" }}</td>
+            <td>{{ pesaje.ticket.numero }}</td>
+            <td>{{ pesaje.ficha.compania.nombre }}</td>
+            <td>{{ pesaje.ficha.codigo }}</td>
+            <td>{{ pesaje.ficha.tara}}</td>
+            <td>{{ pesaje.peso_bruto }}</td>
+            <td>{{ pesaje.tonelaje }}</td>
+            <td>{{ pesaje.descuento }}</td>
+          </tr>
+        </tbody>
+      </table>
