@@ -5,6 +5,7 @@ import { ControlPesajeComponent } from 'src/app/components/control-pesaje/contro
 import { DashboardComponent } from 'src/app/components/dashboard/dashboard.component';
 import { DescuentosComponent } from 'src/app/components/descuentos/descuentos.component';
 import { FichasComponent } from 'src/app/components/fichas/fichas.component';
+import { HistorialTonelajeComponent } from 'src/app/components/historial-tonelaje/historial-tonelaje.component';
 import { TonelajeDiaComponent } from 'src/app/components/tonelaje-dia/tonelaje-dia.component';
 import { UsuariosComponent } from 'src/app/components/usuarios/usuarios.component';
 import { HomeComponent } from './home.component';
@@ -20,6 +21,7 @@ const routes: Routes = [
             { path: 'companias', component: CompaniaComponent },
             { path: 'usuarios', component: UsuariosComponent },
             { path: 'dashboard', component: DashboardComponent },
+            { path: 'historial', component: HistorialTonelajeComponent},
             { path: '**', component: DashboardComponent }
         ]
     }

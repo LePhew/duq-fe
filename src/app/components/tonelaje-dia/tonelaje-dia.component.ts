@@ -3,6 +3,7 @@ import { IPesaje } from 'src/app/interfaces/pesaje';
 import { ExcelService } from 'src/app/services/excel.service';
 import { GenericService } from 'src/app/services/generic.service';
 import { DatePipe } from '@angular/common';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-tonelaje-dia',
@@ -53,6 +54,10 @@ export class TonelajeDiaComponent implements OnInit {
     })
     console.log(csv);
     this._exportService.exportToCsv(csv, 'pesaje-data', ['fecha', 'hora', 'ticket', 'compania', 'ficha', 'tara', 'pesobruto', 'tonelaje', 'descuento']);
+  }
+
+  generarCierre(){
+    
   }
 
 }

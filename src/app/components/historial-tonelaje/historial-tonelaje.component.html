@@ -1,4 +1,12 @@
-<h1>Tonelaje del día</h1>
+<h1>Historial</h1>
+<div class="row filters-area">
+    <div class="btn-group col-lg-3">
+        <select class="form-select" aria-label="Default select example">
+            <option selected>Selecciona el mes</option>
+            <option *ngFor="let mes of meses" value="{{mes}}">{{ mes }}</option>
+          </select>
+    </div>
+<br/>
     <table class="table table-striped table-hover">
         <thead>
           <tr>
@@ -27,10 +35,3 @@
           </tr>
         </tbody>
       </table>
-      <br/>
-      <div class="row text-center">
-          <div>
-            <button (click)="generarCierre()" class="btn btn-primary">Generar cierre</button>
-            <button (click)="exportToCsv()" class="btn btn-success">Exportar</button>
-          </div>
-      </div>

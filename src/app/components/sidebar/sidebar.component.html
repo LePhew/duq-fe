@@ -45,8 +45,9 @@
             <div class="bg-white py-2 collapse-inner rounded">  
                 <h6 class="collapse-header">Seleccione</h6>
                 <a class="collapse-item" [routerLink]="['/home/control-pesaje']">Control Pesaje</a>
-                <a class="collapse-item" [routerLink]="['/home/descuentos']" >Descuentos</a>
                 <a class="collapse-item" [routerLink]="['/home/tonelaje-dia']">Tonelaje del día</a>
+                <a *ngIf="userRole != 'Operador'" class="collapse-item" [routerLink]="['/home/descuentos']" >Descuentos</a>
+                <a *ngIf="userRole != 'Operador'" class="collapse-item" [routerLink]="['/home/historial']" >Historial</a>
             </div>
         </div>
     </li>

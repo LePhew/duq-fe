@@ -16,6 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ChartsModule } from 'ng2-charts';
+import { HistorialTonelajeComponent } from './components/historial-tonelaje/historial-tonelaje.component';
 
 
 
@@ -27,7 +28,8 @@ import { ChartsModule } from 'ng2-charts';
     FichasComponent,
     CompaniaComponent,
     UsuariosComponent,
-    DashboardComponent
+    DashboardComponent,
+    HistorialTonelajeComponent
   ],
   imports: [
     BrowserModule,
