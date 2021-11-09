@@ -50,7 +50,7 @@ export class ControlPesajeComponent implements OnInit {
   }
 
   calcPesoAndTonelaje() {
-    this.peso_bruto = this.getRandomInt(500);
+    this.peso_bruto = this.getRandomPeso(22000);
     this.tonelaje = this.peso_bruto - this.ficha.tara;
   }
 
@@ -92,6 +92,9 @@ export class ControlPesajeComponent implements OnInit {
 
   getRandomInt(max: number) {
     return Math.floor(Math.random() * max);
+  }
+  getRandomPeso(max: number) {
+    return Math.floor(Math.random() * max) + 22000;
   }
 
 }
