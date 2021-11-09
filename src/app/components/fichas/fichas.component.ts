@@ -62,7 +62,10 @@ export class FichasComponent implements OnInit {
     })
   }
 
-
-
-
+  clearAll(){
+    this.codigo = 0;
+    this.placa = "";
+    this.tara = 0;
+    this.compania_id="";
+  }
 }
